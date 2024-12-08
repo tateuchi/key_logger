@@ -1,5 +1,5 @@
 from utils.data_handler import filter_data
-from utils.visualizer import plot_data
+from utils.visualizer import plot_data, display_ranking
 from tkinter import Tk, Label, Button, Entry
 from datetime import datetime
 
@@ -8,6 +8,7 @@ def show_gui():
         start_date = datetime.strptime(start_entry.get(), '%Y-%m-%d')
         end_date = datetime.strptime(end_entry.get(), '%Y-%m-%d')
         filtered = filter_data(start_date, end_date)
+        display_ranking(filtered)
         plot_data(filtered)
 
     root = Tk()
